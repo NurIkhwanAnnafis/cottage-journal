@@ -1,7 +1,10 @@
+import { Button } from "antd";
 import moment from "moment";
 import { currency } from "../../../../utils/helper";
 
-export const columns = [
+export const columns = (
+  callback = () => {}
+) => [
   {
     title: 'Masuk',
     dataIndex: 'masuk',
@@ -18,6 +21,11 @@ export const columns = [
         title: 'Kwitansi/Bukti',
         dataIndex: 'bukti_masuk',
         key: 'bukti_masuk',
+        render: () => (
+          <Button type="link" onClick={() => callback('')}>
+            buka bukti
+          </Button>
+        )
       },
       {
         title: 'Jumlah',
@@ -43,6 +51,11 @@ export const columns = [
         title: 'Kwitansi/Bukti',
         dataIndex: 'bukti_keluar',
         key: 'bukti_keluar',
+        render: () => (
+          <Button type="link" onClick={() => callback('')}>
+            buka bukti
+          </Button>
+        )
       },
       {
         title: 'Jumlah',
